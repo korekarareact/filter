@@ -3,20 +3,20 @@ var React = require('react');
 
 var List = React.createClass({
     render : function() {
-        var data = this.props.data,
-            input = this.props.filter.toLowerCase();
-        var cat = this.props.data.map(function(neko,key) {
+
+        var cat = [];
+        var input = this.props.filter.toLowerCase();
+        this.props.data.map(function(neko) {
             if (neko.name.toLowerCase().indexOf(input)) {
                 return;
             } else {
-                return
-            <li>
-            { neko.name }
-            </li>;
+                cat.push(<div className="unitbox"><span><img src={neko.icon} width="60px" height="60px"/></span><p>{ neko.name }</p></div>);
             }
-            });
+        });
+
+                console.log(cat);
         return (
-            <ul> { cat } </ul>
+            <div > { cat } </div>
         )
     }
 });

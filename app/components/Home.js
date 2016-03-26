@@ -4,9 +4,6 @@ var List = require('./List');
 
 
 var Home = React.createClass({
-    componentWillReceiveProps : function(props){
-        console.log(props);
-    },
     getInitialState : function() {
         return {
             filterText: ''
@@ -18,12 +15,14 @@ var Home = React.createClass({
         });
     },
     render : function() {
+
         return (
             <div>
             <header>
+                <h1>BattleCats Filter</h1>
                 <Filter filterVal = { this.state.filterText } filterUpdate = { this.stateUpdate } />
             </header>
-            <List data = { this.props.data } filter = { this.state.filterText } />
+            <List data = { this.props.data }  filter = { this.state.filterText } />
             </div>
         )
     }
